@@ -1,5 +1,12 @@
 # Hospital_server
-Web_App for a Patient Clinical Data management application for the health care providers (i.e. nurses and doctors) in hospital. 
+Web application for hospital workers (i.e. nurses and doctors).
+
+User can:
+1) Add a patient;
+2) Update;
+3) Delete; 
+4) Get;
+5) Change style of their app(different color of background).
 
 Tools:
 1) HTML (Bootstrap)
