@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+   
+    <!-- Bootstrap CSS -->
+    <link rel = "stylesheet" href = "css/main.css">
+    <link rel = "stylesheet" href = "css/media.css">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src = "js/main.js"></script>
+
+    <script>
+        function validateForm() {
+          var x = document.forms["myForm"]["fname"].value;
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+        }
+        </script>
+
+  </head>
+
+  <body class = "body">
+      <div class = "name"> 
+            <h1>HEALTH GUARD</h1>
+            <div class = "logo">
+                <img src = "img/name2.png">
+                
+            </div>
+      </div>
+
+<div class = "container">
+  <div class ="row">
+      <div class = "col-lg-3 offset-lg-4  offset-md-3 col-sm-4 offset-sm-2"> 
+
+     <!-- <form> -->
+      <!-- <form method="POST" action="/post-user"> -->
+        <form id = "dataUser">
+        <div class = "form">
+               
+                <div class="tab-content">
+                    <div id = "login">
+                       
+            <div class = "input_icon">
+            <input type="email" class ="form_input" id = "reg" name="user" placeholder="USER" required>
+            
+            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+          </div>
+          <div class = "input_icon_lock">
+            <input type="password" class ="form_input pass" name="pass" placeholder="PASSWORD" required>
+            <i class="fas fa-lock"></i>
+          </div>
+            <button onclick = "outputname()" type="submit" class="btn_login"  value="Submit"><a href = "/personal" class = "login">LOGIN</a></button>
+            </form>
+                    </div>
+
+                   
+  
+  <div id="signup">   
+      <form method="POST" action="/post-user">
+                <div class = "input_icon">
+                <input type="email" class ="form_input" name="user" placeholder="EMAIL" required>
+                <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+              </div>
+              <div class = "input_icon_lock">
+                <input type="password" class ="form_input pass"  name="pass" placeholder="PASSWORD" required>
+                <i class="fas fa-lock"></i>
+              </div>
+           
+                <button  type= "submit"  class="btn_login register">REGISTER</button>
+              
+        
+        </form>
+
+      </div>
+    </div>
+        </div>
+    </div>
+</div>
+  <div class="w-100"></div>
+  <div class = "row">
+            <div class = "col-lg-11 offset-lg-5 offset-md-3 offset-sm-3 div_forgot">
+            <a href = "#" class = "forgot">Forgot the password?</a>
+        
+            </div>
+
+            <div class = "col-lg-12 offset-lg-4 offset-lg-3 offset-md-3  div_forgot">
+         <button type="submit" class="btn_sign_in tab active"><a href="#login" class = "a_sign_in">SIGN IN</a></button>
+            <button type="submit" class="btn_sign tab"> <a href="#signup" class = "a_sign_up">SIGN UP</a></button>
+          </div> 
+          
+        </div>
+          </div>
+</div>
+</div>
+        </div>
+    </div> 
+<footer>  
+    <div class = "footer">
+        <div class = "row">
+            <div class = "col-lg-5 offset-lg-5 offset-sm-4">
+                <h6 class = "facebook">SIGN  IN  WITH  FACEBOOK</h6>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+    
+
+    
+
+
+ 
+
+
+</footer>
+
+        
+          
+    <!--        
+<div class="form">
+      
+  <ul class="tab-group">
+      <li class="tab active"><a href="#signup">Sign Up</a></li>
+      <li class="tab"><a href="#login">Log In</a></li>
+    </ul> 
+    
+    <div class="tab-content">
+      <div id="signup">   
+        <h1>Sign Up for Free</h1>
+        
+        <form action="" method="post">
+        
+        <div class="top-row">
+          <div class="field-wrap">
+            <label>
+              First Name<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" />
+          </div>
+      
+          <div class="field-wrap">
+            <label>
+              Last Name<span class="req">*</span>
+            </label>
+            <input type="text"required autocomplete="off"/>
+          </div>
+        </div>
+
+        
+        <button type="submit" class="button button-block"/>Get Started</button>
+        
+        </form>
+
+      </div>
+      
+      <div id="login">   
+        <h1>Welcome Back!</h1>
+        
+        <form action="/" method="post">
+        
+         <div class="field-wrap">
+          <label>
+            Email Address<span class="req">*</span>
+          </label>
+          <input type="email"required autocomplete="off"/>
+         </div>
+        
+        <div class="field-wrap">
+          <label>
+            Password<span class="req">*</span>
+          </label>
+          <input type="password"required autocomplete="off"/>
+        </div>
+        
+        <p class="forgot"><a href="#">Forgot Password?</a></p>
+        
+        <button class="button button-block"/>Log In</button>
+        
+        </form>
+
+      </div>
+      
+    </div>
+    
+</div>
+-->
+<script>
+
+  $('.tab a').on('click', function (e) {
+    
+    e.preventDefault();
+    
+    $(this).parent().addClass('active');
+    $(this).parent().siblings().removeClass('active');
+    
+    target = $(this).attr('href');
+  
+    $('.tab-content > div').not(target).hide();
+    
+    $(target).fadeIn(600);
+    
+  });
+
+  
+</script>
+
+  
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    -->  
+  </body>
+</html>

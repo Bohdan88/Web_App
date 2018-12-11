@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel = "stylesheet" href = "css/personal.css">
+    <link rel = "stylesheet" href = "css/media.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src = "js/main.js"></script>
+   
+
+    <script>
+         //// 
+    function loadPhones() {
+
+var xhr = new XMLHttpRequest();
+
+//xhr.open('GET', 'http://localhost:5001/patients', true);
+xhr.open('GET', 'http://localhost:5001/view-feedbacks', true);
+
+xhr.send();
+
+xhr.onreadystatechange = function() {
+  if (xhr.readyState != 4) return;
+
+ // button.parentNode.removeChild(button);
+
+  if (xhr.status != 200) {
+  
+
+    alert( xhr.status + ': ' + xhr.statusText );
+  } else {
+    try {
+      var phones = JSON.parse(xhr.responseText);
+    } catch (e) {
+      alert( "Error" + e.message );
+    }
+    showPhones(phones)
+  }
+
+}
+}
+
+function showPhones(phones) {
+
+  phones.forEach(function(phone) {
+      var div = clientName.appendChild(document.createElement('table'));
+        div.setAttribute("class", "card-body custom_card-body" );
+         div.innerHTML = objToString(phone)
+      
+         function objToString (phone) {
+    var str = '';
+    for (var p in phone) {
+        if (phone.hasOwnProperty(p)) {
+            str += p + ' : ' + phone[p] +"<br>" + '\n';
+        }
+    }
+    return str + "" + "<br>";
+}
+  });
+}
+
+
+// function for users
+
+
+   function loadStuff() {
+
+var xhr = new XMLHttpRequest();
+
+
+xhr.open('GET', 'http://localhost:5001/view-users', true);
+
+xhr.send();
+
+xhr.onreadystatechange = function() {
+  if (xhr.readyState != 4) return;
+
+ // button.parentNode.removeChild(button);
+
+  if (xhr.status != 200) {
+  
+
+    alert( xhr.status + ': ' + xhr.statusText );
+  } else {
+    try {
+      var phones = JSON.parse(xhr.responseText);
+    } catch (e) {
+      alert( "Error" + e.message );
+    }
+    showStuff(phones)
+  }
+
+}
+}
+
+function showStuff(phones) {
+
+  phones.forEach(function(phone) {
+      var div = ajaxUser.appendChild(document.createElement('ul'));
+       // div.setAttribute("class", "li" );
+
+      div.innerHTML =  "<p style='color:white; font-size:25px;'>Email: " + phone.user + "</p>"
+     
+     
+});
+}
+     
+ 
+    
+    
+    </script>
+
+
+  </head>
+
+  <body>
+        <div class="jumbotron jumbotron-fluid header">
+                <div class="container">
+                  <h1 class="display-4 health">HEALTH
+                        GUARD  
+                                <img src = "img/name2.png">
+                                
+                            </h1>
+
+                            
+                         
+
+
+
+                           
+                        
+                  <p class="lead">Avaliability <br>
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label></p>
+                </div>
+              </div>
+
+
+    <div class = "main_personal">
+        <div class = "row">
+            <div class = "col-lg-3 col-md-3 col-sm-3">
+           <div id="list-example" class="list-group custom_group">
+                    <a class="list-group-item list-group-item-action custom_list" href="#list-item-1" id = "profile">
+                      <i class="fa fa-user fa-lg fa-fw i_custom" aria-hidden="true"></i>Profile</a>
+
+    <a class="list-group-item list-group-item-action custom_list" id = "searchPatient" href="#list-item-2">         
+       
+        <i class="fas fa-plus i_custom"></i>
+        Add a patient</a>
+                    <a class="list-group-item list-group-item-action custom_list" href="#list-item-3" id = "patient" onclick="loadPhones()"><i class="fas fa-users i_custom"></i>My patients</a>
+                    <a class="list-group-item list-group-item-action custom_list" href="#list-item-4" id = "task"><i class="fas fa-thumbtack i_custom"></i>Release a patient</a>
+                    <a class="list-group-item list-group-item-action custom_list" href="#list-item-4" id = "mySettings"><i class="fas fa-cogs i_custom"></i>Update records</a>
+                    <a class="list-group-item list-group-item-action custom_list" href="#list-item-5" id = "settingsNew"><i class="fas fa-cogs i_custom"></i>Settings</a>
+                    <a class="list-group-item list-group-item-action custom_list" href="index.html"><i class="fas fa-sign-out-alt i_custom"></i>Log out</a>
+            </div>
+        </div> 
+        
+              
+                
+                  <div class = "col-lg-9 offset-lg-0 col-md-9 offset-md-0 col-sm-7 offset-sm-2">
+                  <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example data" id = "details"> 
+                    <h4 id="list-item-1"></h4>
+                        <div class = "row">
+                            <div class = "col-4 col-md-4 offset-md-1 col-sm-5">
+                   <!-- <img src="img/img_avatar.png" alt="Avatar"  class = "img" style="width:200px"> -->
+                   <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/img_avatar.png" class = "img" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">D. Johnson</h5>
+                     
+                        </div>
+                      </div>
+                </div>
+                <div class = "col-6 col-md-6 offset-md-1">
+                  
+                    <a  href = "#" class = "main_check" id = "demos" onclick="loadStuff()">Show your data</a>
+                  <div id = "ajaxUser" class = "ajax">
+                      
+
+                     
+
+                  </div>
+                  <!--  <table class = "profile">
+                 
+                       <tr>
+                       <td class = "name">Position:</td> <td>Head Doctor</td>
+                </tr>
+
+                <tr>
+                        <td class = "name">Age:</td> <td>37</td>
+                 </tr>
+
+                 
+                 <tr>
+                        <td class = "name">Martial status:</td> <td>Married</td>
+                 </tr>
+                 <tr>
+                        <td class = "name">Location:</td> <td>Canada,Toronto</td>
+                 </tr>
+                 <tr>
+                        <td class = "name">Aim:</td> <td>Help others</td>
+                 </tr>
+                 <tr>
+                        <td class = "name">Techonolofy Expertise: </td> <td><div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                  <span class="sr-only">70% Complete</span>
+                                </div></td>
+                 </tr>
+                 <tr>
+                        <td class = "name">Use of Technology:</td> <td>iphoneX</td>
+                 </tr>
+
+                     
+                     
+                       
+
+                    </table> -->
+
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class = "search" id = "search">
+                    <h4 id="list-item-2" class = "addPatient">Add a patient</h4>
+
+                    <!-- bytik-->
+                    <div class = "col-6 offset-lg-4 offset-md-3 custom_form_layout">
+                    <form method="POST" action="/post-feedback" class = "form_group_main">
+                      <div class="form-group">
+                          <label class = "label" for="exampleInputEmail1">Name</label>
+                      <input type="text" placeholder="Name" class="form-control custom_input" name="Name" required>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                      <label class = "label">Disease </label><input placeholder="Disease" type="text" name="Disease" class="form-control custom_input" required>
+                    </div>
+                      <br>
+
+                      <label class = "label">Records<br></label><textarea  placeholder="Records" name="Records"  class="form-control custom_input textarea" id="exampleFormControlTextarea1"></textarea>
+                     
+                      <br>    <br>    
+                      <input type="submit" class="btn btn-primary post_data btn"  value="Submit">
+                      <br><br>
+                     <!-- <a href="/view-feedbacks" class = "feedback">View feedbacks</a> -->
+                    </div>
+                 
+                  </form>
+                </div>
+
+                    <br>
+            
+
+                    
+    
+                    <div class = "myPatient" id = "myPatient">
+                    <h4 id="list-item-3"  class = "addPatientMy">My patients</h4>
+
+                    <br><br>
+                        <div class = "p-3 container">
+                        <div id = "clientName" class= "d-flex custom_flex">
+                  </div>
+                </div>      
+                    </div>
+                    <div class = "createTask" id = "createTask">
+                    <h4 id="list-item-4" class = "addPatientMy">Release a  patient</h4>
+                    <div class = "col-6 offset-lg-4  offset-md-3 custom_form_layout">
+                        <form method="POST"  action="/delete-feedback" class = "form_group_main">
+                         
+                        <div class="form-group">
+                              <label class = "label">Patient ID</label>
+                          <input type="text"  placeholder="ID" class="form-control custom_input" name="_id" required>
+                          </div> 
+
+      
+                          <br>    <br>    
+                          <input type="submit" class="btn btn-primary post_data btn"  value="Release">
+                          <br><br>
+                         <!-- <a href="/view-feedbacks" class = "feedback">View feedbacks</a> -->
+                        </div>
+                     
+                      </form>
+                    </div>
+
+                                <div class = "settings" id = "settings">
+                                    <h4 id="list-item-5" class = "addPatientMy">Update records</h4>
+                                    <div class = "col-6 offset-lg-4 offset-md-3 custom_form_layout">
+                                        <form method="POST"  action="/update-feedback" class = "form_group_main">
+                                         
+                                        <div class="form-group">
+                                              <label class = "label">Patient ID</label>
+                                          <input type="text"  placeholder="ID" class="form-control custom_input" name="_id" required>
+                                          </div> 
+
+                                <div class="form-group">
+                                              <label class = "label" for="exampleInputEmail1">Name</label>
+                                          <input type="text" placeholder="Name" class="form-control custom_input" name="Name" required>
+                                          <label class = "label">Records<br></label><textarea  placeholder="Records" name="Records"  class="form-control custom_input textarea" id="exampleFormControlTextarea1"></textarea>
+                                          </div>
+
+                      
+                                          <br>    <br>    
+                                          <input type="submit" class="btn btn-primary post_data btn"  value="Update">
+                                          <br><br>
+                                         <!-- <a href="/view-feedbacks" class = "feedback">View feedbacks</a> -->
+                                        </div>
+                                     
+                                      </form>
+                                    </div>
+                                    <div class = "settingsNew" id = "settingsNews">
+                                        <h4 id="list-item-4" class = "addPatientMy">Settings</h4>
+                                        <h5 class = "main_style">Choose your style by clicking on the desired box</h5>
+
+                                        <div class = "setting_style col-sm-10 offset-lg-2 offset-md-1"> 
+                                              <button class = "dark custom_button" id = "darkth">Dark</button>
+                                              <button class = "light custom_button" id = "lightth">Light</button>
+                                              <button class = "fancy custom_button" id = "fancyth">Fancy</button>
+                                              <button class = "standart custom_button" id = "standartth">Standart</button>
+
+
+                                        </div>
+                                    </div>
+                  </div>
+                </div>
+            </div>
+
+</div>
+
+
+<script>
+
+  /// background 
+
+  
+  $("#fancyth").click(function(){
+  
+  $("body").addClass("fancy");
+  $(".header").removeClass();
+  $(".header").addClass("fancy");
+  
+  
+})
+
+ $("#lightth").click(function(){
+  $("body").removeClass();
+  $("body").addClass("light");
+  $(".header").removeClass();
+  $(".header").addClass("light");
+  
+  
+})
+
+$("#standartth").click(function(){
+  $("body").removeClass();
+  $("body").addClass("standart");
+  
+  
+})
+
+$("#darkth").click(function(){
+  $("body").removeClass();
+  $("body").addClass("dark");
+  $(".header").removeClass();
+  $(".header").addClass("dark");
+  
+  
+ 
+  
+})
+
+
+  $(document).ready(function() {
+   $('.addPatientMy').hide();
+});
+
+  
+  $("#profile").click(function(){
+          $("#details").show();
+          
+          $("#settingsNews").hide();
+          $("#search").hide();
+          $("#createTask").hide();
+          $("#myPatient").hide();
+          $("#settings").hide();
+});
+
+
+      $("#searchPatient").click(function(){
+          $("#search").show();
+        
+          $("#details").hide();
+          $("#createTask").hide();
+          $("#myPatient").hide();
+          $("#settings").hide();
+          $("#settingsNews").hide();
+         
+            });
+
+
+  $("#patient").click(function(){
+    $("#myPatient").show();
+    $('.addPatientMy').show();
+
+     $("#details").hide();
+     $("#createTask").hide();
+     $("#settings").hide();
+     $("#search").hide();
+     $("#settingsNews").hide();
+     
+   
+});
+
+ 
+
+$("#task").click(function(){
+  $("#createTask").show();
+  $('.addPatientMy').show();
+
+  $("#search").hide();
+  $("#settings").hide();
+  $("#myPatient").hide();
+  $("#details").hide();
+  $("#settingsNews").hide();
+
+   
+});
+
+
+$("#mySettings").click(function(){
+  $("#settings").show();
+  $('.addPatientMy').show();
+  
+
+  $("#search").hide();
+  $("#myPatient").hide();
+  $("#details").hide();
+  $("#createTask").hide();
+  $("#settingsNews").hide();
+
+   
+});
+
+///
+
+$("#settingsNew").click(function(){
+  $("#settingsNews").show();
+  $('.addPatientMy').show();
+  
+
+  $("#search").hide();
+  $("#myPatient").hide();
+  $("#details").hide();
+  $("#createTask").hide();
+ 
+  $("#settings").hide();
+
+   
+});
+
+
+
+
+  
+
+
+
+
+</script>
+    </body>
+
+
+    </html>
